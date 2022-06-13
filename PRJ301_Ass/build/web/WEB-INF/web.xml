@@ -16,6 +16,10 @@
         <servlet-name>GroupController</servlet-name>
         <servlet-class>Controller.GroupController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogOutController</servlet-name>
+        <servlet-class>Controller.LogOutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>GroupController</servlet-name>
         <url-pattern>/group</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogOutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

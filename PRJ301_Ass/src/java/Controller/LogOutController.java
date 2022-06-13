@@ -5,23 +5,19 @@
 
 package Controller;
 
-import Dal.GroupDBContext;
-import Dal.StudentDBContext;
-import Model.Group;
-import Model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
  * @author MyPC
  */
-public class StudentController extends HttpServlet {
+public class LogOutController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -32,22 +28,10 @@ public class StudentController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
-        StudentDBContext dbs = new StudentDBContext();
-//        ArrayList<Student> stu = dbs.search(id);
-        
-        String raw_code = request.getParameter("code");
-        String code = (raw_code!=null && raw_code.length()>0)?raw_code:null;
-        ArrayList<Student> stu = dbs.list(code, id);
-        int count =1;
-        GroupDBContext db = new GroupDBContext();
-        ArrayList<Group> group = db.list();
-        request.setAttribute("group", group);
-        request.setAttribute("count", count);
-        request.setAttribute("id", id);
-        request.setAttribute("stu", stu);
-        request.getRequestDispatcher("viewstudent/student.jsp").forward(request, response);
-        
+       HttpSession session = request.getSession();
+        session.removeAttribute("account");
+        response.sendRedirect("home");
+      
     } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

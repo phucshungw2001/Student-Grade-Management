@@ -27,7 +27,7 @@ public class GroupController extends HttpServlet {
         GroupDBContext db = new GroupDBContext();
         ArrayList<Group> group = db.list();
         request.setAttribute("group", group);
-        request.getRequestDispatcher("view/group.jsp").forward(request, response);
+        request.getRequestDispatcher("viewstudent/group.jsp").forward(request, response);
     } 
 
     @Override

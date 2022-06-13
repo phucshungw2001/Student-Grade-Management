@@ -6,6 +6,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -89,6 +91,11 @@
             text-decoration: none;
              color: #337ab7;   
         }
+        p1{
+            font-family: Times New Roman;
+            font-size: 25px;
+            color: black;
+        }
 
     </style>
     <body>
@@ -109,23 +116,16 @@
   
             </div>           
         </div>     
-        <div class="lienket">
-            
-            Group :
-            <table border = "1px">
-                <tr>
-                    <c:forEach items="${requestScope.group}" var="g">
+        <div class="lienket">         
+            <p1>Group : <c:forEach items="${requestScope.group}" var="g">
                        
-                        <c:if test="${g.gid eq requestScope.id}">
-                            <td>
-                            <a href="student?id=${g.gid}">${g.gname}</a>
-                            </td>   
-                        </c:if>
-                      
-                        
-                    </c:forEach>
-                </tr>
-            </table>       
+                        <c:if test="${g.gid eq requestScope.id}">                          
+                            ${g.gname}                        
+                        </c:if>                       
+                    </c:forEach> </p1>
+
+                    
+              
         </div>
         
 
@@ -157,7 +157,7 @@
                             <img class="a" src="${s.simg}" alt=""/>
                         </td>
                         <td style="vertical-align:top">
-                            <a  href="" > ${s.smember}</a>  
+                            <a  href="viewstudent/view.jsp?sid=${s.sid}"> ${s.smember}</a>  
                         </td>
 
                         <td style="vertical-align:top">

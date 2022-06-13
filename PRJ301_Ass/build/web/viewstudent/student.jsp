@@ -157,7 +157,7 @@
                             <img class="a" src="${s.simg}" alt=""/>
                         </td>
                         <td style="vertical-align:top">
-                            <a  href="" > ${s.smember}</a>  
+                            <a  href="viewstudent/view.jsp?sid=${s.sid}"> ${s.smember}</a>  
                         </td>
 
                         <td style="vertical-align:top">

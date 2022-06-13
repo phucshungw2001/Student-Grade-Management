@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -34,9 +35,14 @@ public class LoginController extends HttpServlet {
         Account account = db.getT(username, password);
 
         if (account == null) {
-            response.getWriter().println("Login Faild");
+            request.getSession().setAttribute("account", null);
+            request.setAttribute("mes", "Login fail");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
-            response.getWriter().println("Login Success");
+            HttpSession session = request.getSession();
+            session.setAttribute("account", account);
+            request.getSession().setAttribute("account", account);
+            response.sendRedirect("group");
         }
     }
 
