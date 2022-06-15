@@ -33,18 +33,30 @@
         }
         .bbb{
             height: 60px;
-            
+
         }
         .aaaa{
             background-color:    #bd5d38;
-            
+
         }
         .aaaa a {
             color: white;
         }
-          .aaaa p{
-          padding-top: 11.5px;    
-          }
+        .aaaa p{
+            padding-top: 11.5px;
+        }
+        .aaaaa{
+            width: 120px;
+            background-color:    #bd5d38;
+            margin-left: 43.5%;
+        }
+        .aaaaa p{
+            padding-top: 11.5px;
+        }
+        .aaaaa a
+        {
+            color: white;
+        }
     </style>
     <body id="page-top">
 
@@ -88,13 +100,16 @@
                             <div class="col-md-2"></div>
                             <div class="col-md-3 aaaa">
                                 <p>
-                                    <a href="login">Login for Lecture</a>             
+                                    <a href="">Login for Lecture</a>             
                                 </p>
                             </div>
                             <div class="col-md-2"></div>
                         </c:if>
                         <c:if test="${sessionScope.account != null}">
-                            <div class="col-md-6 aaaa">
+                            <p class="bbbb">
+                                <a href="viewstudent/viewinformation.jsp">Information</a>             
+                            </p>
+                            <div class="aaaaa">
                                 <p >
                                     <a href="logout">Log Out</a>             
                                 </p>

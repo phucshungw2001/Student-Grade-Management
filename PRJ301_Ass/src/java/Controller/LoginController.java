@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 /**
  *
@@ -33,7 +34,7 @@ public class LoginController extends HttpServlet {
 
         AccountDBContext db = new AccountDBContext();
         Account account = db.getT(username, password);
-
+        
         if (account == null) {
             request.getSession().setAttribute("account", null);
             request.setAttribute("mes", "Login fail");
@@ -42,7 +43,8 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
             request.getSession().setAttribute("account", account);
-            response.sendRedirect("group");
+            request.setAttribute("name", account.getDisplayname());
+            response.sendRedirect("home.jsp");
         }
     }
 

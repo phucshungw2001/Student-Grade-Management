@@ -9,6 +9,7 @@ import Dal.SubjectsDBContext;
 import Model.Group;
 import Model.Subjects;
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,28 +20,26 @@ import java.util.ArrayList;
  *
  * @author MyPC
  */
-public class GroupController extends HttpServlet {
+public class SubjectsController extends HttpServlet {
+
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int subid = Integer.parseInt(request.getParameter("id"));
-        SubjectsDBContext dbsub = new SubjectsDBContext();
-        ArrayList<Subjects> subject = dbsub.list();
-        request.setAttribute("subject", subject);
-        
-        GroupDBContext dbgroup = new GroupDBContext();
-        ArrayList<Group> group = dbgroup.search(subid);
-
-        request.setAttribute("group", group);
+        SubjectsDBContext db = new SubjectsDBContext();
+        ArrayList<Subjects> subject = db.list();
+        request.setAttribute("subject", subject);      
         request.getRequestDispatcher("viewstudent/group.jsp").forward(request, response);
-
     }
 
+   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
+            throws ServletException, IOException {        
+        
     }
+
+
 
 }

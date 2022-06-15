@@ -5,7 +5,12 @@
 package Dal;
 
 import Model.Subjects;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,9 +19,29 @@ import java.util.ArrayList;
 public class SubjectsDBContext extends DBContext<Subjects>{
 
     
+    
     @Override
     public ArrayList<Subjects> list() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+          ArrayList<Subjects> sub = new ArrayList<>();
+        try {
+            String sql = "SELECT [subid]\n"
+                    + "      ,[subname]\n"
+                    + "      ,[subcode]\n"
+                    + "  FROM [Subjects]";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                  Subjects s = new Subjects();
+                  s.setSubid(rs.getInt("subid"));
+                  s.setSubcode(rs.getString("subcode"));
+                  s.setSubname(rs.getString("subname"));
+                  sub.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SubjectsDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sub;    
+    
     }
 
     @Override
