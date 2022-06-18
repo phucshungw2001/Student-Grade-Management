@@ -9,7 +9,6 @@ import Dal.SubjectsDBContext;
 import Model.Group;
 import Model.Subjects;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -30,6 +29,9 @@ public class SubjectsController extends HttpServlet {
         SubjectsDBContext db = new SubjectsDBContext();
         ArrayList<Subjects> subject = db.list();
         request.setAttribute("subject", subject);      
+        GroupDBContext dbgroup = new GroupDBContext();
+        ArrayList<Group> group = dbgroup.search(1);
+        request.setAttribute("group", group); 
         request.getRequestDispatcher("viewstudent/group.jsp").forward(request, response);
     }
 
