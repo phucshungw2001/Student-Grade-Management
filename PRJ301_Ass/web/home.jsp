@@ -107,7 +107,7 @@
                         </c:if>
                         <c:if test="${sessionScope.account != null}">
                             <p class="bbbb">
-                                <a href="viewstudent/viewinformation.jsp">Information</a>             
+                                <a href="view_students/viewinformation.jsp">Information</a>             
                             </p>
                             <div class="aaaaa">
                                 <p >

@@ -1,11 +1,12 @@
 <%-- 
-    Document   : group
-    Created on : Jun 8, 2022, 8:18:41 PM
+    Document   : student
+    Created on : Jun 8, 2022, 8:41:25 PM
     Author     : MyPC
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -27,22 +28,23 @@
             height: 50px;
             margin-left: 25px;
         }
-        .c{
-            width: 110px;
-            text-align: left;
-        }
-        .d{
-            width: 500px;
-            text-align: left;
-        }
-        .f{
-            width: 380px;
-            text-align: left;
-        }
         th{
             background-color:#6b99da;
             display: table-cell;
         }
+        .name{
+            width: 180px;
+        }
+        .gender
+        {
+            width:120px;
+        }
+        .code
+        {
+            width: 120px;
+
+        }
+
         .lienket a{
             text-decoration: none
         }
@@ -67,10 +69,6 @@
         input{
             border-radius: 30px;
         }
-        .lienket a{
-            text-decoration: none
-        }
-
         .e{
             margin-left:  3.2%;
             display: flex;
@@ -82,20 +80,21 @@
             display: flex;
             justify-content: left;
             background-color: #f5f5f5;
-
         }
         p{
-            font-size: 15px;
+            padding-left: 15px;
+            font-family: cursive;
+            font-size: 13px;
         }
 
         .ee a{
             text-decoration: none;
             color: #337ab7;
         }
-        .ee p{
-            padding-left: 15px;
-            font-family: cursive;
-            font-size: 13px;
+        p1{
+            font-family: Times New Roman;
+            font-size: 25px;
+            color: black;
         }
         .cc{
             font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -104,8 +103,13 @@
             margin-left: 3.7%;
             text-align: left;
         }
+
     </style>
     <body>
+        <%
+          int count = (Integer)request.getAttribute("count");
+        %>
+
         <div class="e">
             <h2> University Academic Portal</h2>       
         </div>
@@ -113,51 +117,70 @@
         <div class="ee">
             <div>
                 <p> <a href="subject">Home</a>
-                    | Groups </p>
+                    | View Student   </p>
             </div>
-            <div> </div>   
-        </div>            
+            <div>
 
+            </div>           
+        </div>   
+
+        <div class="lienket">         
+            <p1>Group : <c:forEach items="${requestScope.group}" var="g">
+
+                    <c:if test="${g.gid eq requestScope.id}">                          
+                        ${g.gname}                        
+                    </c:if>                       
+                </c:forEach> </p1>
+        </div>
+
+
+        <div class="aa">
+            <form action="student" method="POST">     
+                <input type="text" name="code" >
+                <input type="hidden" name="id" value="${requestScope.id}">
+                <input type="Submit" value="Search" class="bb">
+            </form>   
+        </div>
         <div class="cc">
-            Select a course, then a group ...
-        </div>        
+            ... then see student list
+        </div> 
         <div class="lienket">
             <table>               
                 <tr >
-                    <th class="c">Campus</th>                     
-                    <th class="c">Term</th>
-                    <th class="d">Course</th>
-                    <th class="f">Group</th>                                         
+                    <th class="index">Index</th>                     
+                    <th class="name">Image</th>
+                    <th class="name">Member</th>
+                    <th class="code">Code</th>
+                    <th class="name">Name</th>                     
+                    <th class="code">Dob</th>
+                    <th class="code">Address</th>
+                    <th class="gender">Gender</th>        
                 </tr>              
-                <td style="vertical-align:top">University</td>
                 <td style="vertical-align:top"></td>
-                <td style="vertical-align:top">
-                    <table>
-                        <tr> 
-                            <td>
-                                <c:forEach items="${requestScope.subject}" var="s">                               
-                                    <a href="group?id=${s.subid}">${s.subname} </a>(${s.subcode})</br>                                
-                                </c:forEach>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
+                <c:forEach items="${requestScope.stu}" var="s" >              
+                    <tr>
+                        <td style="vertical-align:top"><%=count++%></td>
+                        <td style="text-align:center">                   
+                            <img class="a" src="${s.simg}" alt=""/>
+                        </td>
+                        <td style="vertical-align:top">
+                            <a  href="viewstudent/viewinformation.jsp?sid=${s.sid}"> ${s.smember}</a>  
+                        </td>
 
-                <td style="vertical-align:top">
-                    <table>   
-                        <tr>                       
-                            <c:forEach items="${requestScope.group}" var="g">                        
-                                <td>
-                                    <a href="student?id=${g.gid}">${g.gname}</a>   
-                                </td>                         
-                            </c:forEach>                            
-                        </tr> 
-                    </table>   
-                </td>
+                        <td style="vertical-align:top">
+                            ${s.code}                    
+                        </td>
+                        <td style="vertical-align:top">${s.sname}</td>                         
+                        <td style="vertical-align:top">${s.sdob}</td>
+                        <td style="vertical-align:top">${s.saddress}</td> 
+                        <td style="vertical-align:top">                       
+                            <img class="b" src="assets/img/${s.sgender?"nam.png":"gai.png"}" alt=""/>
+                        </td>    
+                    </tr>  
+                </c:forEach>
             </table>
         </div>
-
-        <div style="height: 50px;"></div>
+        <div style="height: 30px;"></div>
 
         <table width="100%" style="border: 1px solid transparent;" class="lienket">
 
@@ -181,9 +204,7 @@
                     </p>
                 </td>
             </tr>
-        </table>
-
-
+        </table> 
 
     </body>
 </html>

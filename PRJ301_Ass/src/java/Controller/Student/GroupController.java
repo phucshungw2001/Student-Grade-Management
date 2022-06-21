@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller;
+package Controller.Student;
 
 import Dal.GroupDBContext;
 import Dal.SubjectsDBContext;
@@ -33,7 +33,7 @@ public class GroupController extends HttpServlet {
         ArrayList<Group> group = dbgroup.search(subid);
 
         request.setAttribute("group", group);
-        request.getRequestDispatcher("viewstudent/group.jsp").forward(request, response);
+        request.getRequestDispatcher("view_students/group.jsp").forward(request, response);
 
     }
 

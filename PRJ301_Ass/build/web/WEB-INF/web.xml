@@ -2,27 +2,31 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>Controller.LoginController</servlet-class>
+        <servlet-class>Controller.Student.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Home</servlet-name>
-        <servlet-class>Controller.Home</servlet-class>
+        <servlet-class>Controller.Student.Home</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StudentController</servlet-name>
-        <servlet-class>Controller.StudentController</servlet-class>
+        <servlet-class>Controller.Student.StudentController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>GroupController</servlet-name>
-        <servlet-class>Controller.GroupController</servlet-class>
+        <servlet-class>Controller.Student.GroupController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogOutController</servlet-name>
-        <servlet-class>Controller.LogOutController</servlet-class>
+        <servlet-class>Controller.Student.LogOutController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SubjectsController</servlet-name>
-        <servlet-class>Controller.SubjectsController</servlet-class>
+        <servlet-class>Controller.Student.SubjectsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MarkController</servlet-name>
+        <servlet-class>Controller.Student.MarkController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>SubjectsController</servlet-name>
         <url-pattern>/subject</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MarkController</servlet-name>
+        <url-pattern>/mark</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
