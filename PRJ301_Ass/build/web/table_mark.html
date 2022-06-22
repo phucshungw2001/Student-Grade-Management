@@ -5,7 +5,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-           <meta charset="utf-8" />
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -18,23 +18,125 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
     </head>
-    
-    
-    
-    
-    
+    <style>
+        th{
+            text-align: left;
+        }
+        .a{
+            width: 100px;
+        }
+        .m{
+            width: 150px;
+        }
+        .pro
+        {
+            width: 70px;
+        }
+        .c{
+            width: 100%;
+        }
+        .sta{
+            width: 65px;
+        }
+        .d{
+            width: 580px;
+            text-align: left;
+        }
+        .f{
+            width: 380px;
+            text-align: left;
+        }
+        th{
+            background-color:#6b99da;
+            display: table-cell;
+        }
+        .lienket a{
+            text-decoration: none;
+        }
+        .lienket
+        {
+            margin: 3%;
+            flex: 20%;
+            display: flex;
+            justify-content: center;
+        }
+        .index
+        {
+            width: 60px;
+        }
+        .aa{
+            text-align:right;
+            margin: 4%;
+        }
+        .bb{
+            background-color: skyblue;
+        }
+        input{
+            border-radius: 30px;
+        }
+        .lienket a{
+            text-decoration: none
+        }
+
+        .e{
+            margin-left:  3.2%;
+            display: flex;
+            justify-content: left;
+            font-size: 20px;
+        }
+        .ee{
+            margin: 3.4%;
+            display: flex;
+            justify-content: left;
+            background-color: #f5f5f5;
+
+        }
+        p{
+            font-size: 15px;
+        }
+
+        .ee a{
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .ee p{
+            padding-left: 15px;
+            font-family: cursive;
+            font-size: 13px;
+        }
+        .cc{
+            font-size: 25px;
+            color: black;
+            text-align: center;
+            margin: 18px;
+        }
+        .dd{
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 20px;
+            color: #776;
+            text-align: left;
+            margin: 10px;
+        }
+
+    </style>
     <body>
-            <div class="e">
+        <div class="e">
             <h2> University Academic Portal</h2>       
         </div>
 
         <div class="ee">
             <div>
                 <p> <a href="../subject">Home</a>
-                    | Grade-book </p>
-            </div>
-            <div> </div>   
+                    | List Mark </p>
+            </div>         
         </div> 
+
+        <div class="lienket">         
+            <p1>PRJ301 :                
+                SE0001                                     
+            </p1>
+        </div>
+
         <div >
             <div>                   
                 <div class="lienket">
@@ -45,136 +147,66 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                     Select a term, course ...
                                 </div>  
                                 <table>
-                                    <thead><tr><th>Term</th><th>Course</th></tr></thead>
+                                    <thead >
+                                        <tr class="c">
+                                            <th class="m">Member</th>
+                                            <th class="pro">Project 1 (10%)</th>
+                                            <th class="pro">Project 2 (10%)</th>
+                                            <th class="pro">Project 3 (10%)</th>
+                                            <th class="a">Assignment 1 (10%)</th>
+                                            <th class="a">Assignment 2 (10%)</th>
+                                            <th class="a">Assignment 3 (10%)</th>
+                                            <th>Practice Exam (20%)</th>
+                                            <th>Final Exam (20%)</th>
+                                            <th>Course Total Average</th>
+                                            <th class="sta">Status</th>
+
+                                        </tr>
+                                    </thead>
                                     <tbody>
                                         <tr>                    
-                                            <td class="c"><div><table><tr><td></td></tr></table></div></td>
-                                            <td class="d"><div><table><tr><td></td></tr></table></div></td>
+                                            <td class=""><a  href="viewstudent/viewinformation.jsp?sid=${s.sid}">HE0001</a>  </td>
+                                            <td class="">8</td>
+                                            <td class="">8</td>
+                                            <td class="">8</td>
+                                            <td class="">5</td>
+                                            <td class="">5</td>
+                                            <td class="">6</td>
+                                            <td class="">1</td>
+                                            <td class="">4</td>
+                                            <td class="">5</td>
+                                            <td class="" style="color: green">Pass</td>
                                         </tr>
+                                        <tr>                    
+                                            <td class=""><a  href="viewstudent/viewinformation.jsp?sid=${s.sid}">HE0002</a>  </td>
+                                            <td class="">2</td>
+                                            <td class="">2</td>
+                                            <td class="">2</td>
+                                            <td class="">2</td>
+                                            <td class="">2</td>
+                                            <td class="">2</td>
+                                            <td class="">9</td>
+                                            <td class="">9</td>
+                                            <td class="">4.8</td>
+                                            <td class="" style="color: red">Not Pass</td>
+                                        </tr>
+                                        <tr>                    
+                                            <td class=""><a  href="viewstudent/viewinformation.jsp?sid=${s.sid}">HE0003</a>  </td>
+                                            <td class="">9</td>
+                                            <td class="">8</td>
+                                            <td class="">8</td>
+                                            <td class="">8</td>
+                                            <td class="">9</td>
+                                            <td class="">10</td>
+                                            <td class="">2</td>
+                                            <td class="">3.8</td>
+                                            <td class="">6.38</td>
+                                            <td class="" style="color: red">Not Pass</td>
+                                        </tr>
+
+
                                     </tbody></table>
-                            </td>
-                            <td valign='top'>
-                                <div>
-                                    <table>
-                                        <caption class="dd">... then see report</caption>
-
-                                        <tr>
-                                            <th>Grade category</th>
-                                            <th>Grade item</th>
-                                            <th>Weight</th>
-                                            <th>Value</th>
-                                            <th>Comment</th>
-                                        </tr>
-
-                                        <tbody>
-                                            <tr>
-                                                <td rowspan="4">Assignment</td>
-                                                <td>Assignment 1</td>
-                                                <td>10.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Assignment 2</td>
-                                                <td>10.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Assignment 3</td>
-                                                <td>10.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>30.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td rowspan="4">Progress test</td>
-                                                <td>Progress test 1</td>
-                                                <td>10.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Progress test 2</td>
-                                                <td>10.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Progress test 3</td>
-                                                <td>10.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>30.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                              <tr>
-                                                <td rowspan="2">Practical Exam</td>
-                                                <td>Practical Exam</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                             <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            
-                                            <tr>
-                                                <td rowspan="2">Final Exam</td>
-                                                <td>Final Exam</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                                                                                                              
-                                        </tbody>
-                                        
-                                        <tfoot>
-                                            <tr>
-                                                <td rowspan="2">Course total</td>
-                                                <td>Average</td>
-                                                <td colspan="3"></td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td>Status</td>
-                                                <td colspan="3">
-                                                    <font color="Green">Pass</font>
-                                                    <font color="Red">Not Pass</font>
-                                                </td></tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                            </td>                    
+                            </td>                                        
                         </tr>
                     </table>
 

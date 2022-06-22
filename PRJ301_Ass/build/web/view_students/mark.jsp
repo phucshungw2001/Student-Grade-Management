@@ -4,6 +4,7 @@
     Author     : MyPC
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -151,9 +152,23 @@
                                 <table>
                                     <thead><tr><th>Term</th><th>Course</th></tr></thead>
                                     <tbody>
-                                        <tr>                    
+                                        <tr> 
                                             <td class="c"><div><table><tr><td></td></tr></table></div></td>
-                                            <td class="d"><div><table><tr><td></td></tr></table></div></td>
+                                            <td class="d">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <c:forEach items="${requestScope.subject}" var="s">                               
+                                                                    <a href="">${s.subname} </a>(${s.subcode})</br>                                
+                                                                </c:forEach>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+
+                                            </td>
+                                            
                                         </tr>
                                     </tbody></table>
                             </td>
