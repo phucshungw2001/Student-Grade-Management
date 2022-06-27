@@ -164,7 +164,7 @@
                             <img class="a" src="${s.simg}" alt=""/>
                         </td>
                         <td style="vertical-align:top">
-                            <a  href="viewstudent/viewinformation.jsp?sid=${s.sid}"> ${s.smember}</a>  
+                            <a  href="mark?sid=4"> ${s.smember}</a>  
                         </td>
 
                         <td style="vertical-align:top">

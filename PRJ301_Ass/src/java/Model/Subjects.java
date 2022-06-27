@@ -16,7 +16,16 @@ public class Subjects {
     private String subname;
     private String subcode;
     private Group group;
+    private Student stu;
 
+    public Student getStu() {
+        return stu;
+    }
+
+    public void setStu(Student stu) {
+        this.stu = stu;
+    }
+    
     public Group getGroup() {
         return group;
     }
@@ -24,9 +33,8 @@ public class Subjects {
     public void setGroup(Group group) {
         this.group = group;
     }
-    ArrayList<Student> stu = new ArrayList();
-    
-    
+
+
     public String getSubcode() {
         return subcode;
     }
@@ -51,14 +59,6 @@ public class Subjects {
 
     public void setSubname(String subname) {
         this.subname = subname;
-    }
-
-    public ArrayList<Student> getStu() {
-        return stu;
-    }
-
-    public void setStu(ArrayList<Student> stu) {
-        this.stu = stu;
     }
 
 }

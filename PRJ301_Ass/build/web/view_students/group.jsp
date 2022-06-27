@@ -128,7 +128,8 @@
                     <th class="c">Department</th>
                     <th class="d">Course</th>
                     <th class="f">Group</th>                                         
-                </tr>              
+                </tr>    
+                
                 <td style="vertical-align:top">University</td>
                 <td style="vertical-align:top"></td>
                 <td style="vertical-align:top">

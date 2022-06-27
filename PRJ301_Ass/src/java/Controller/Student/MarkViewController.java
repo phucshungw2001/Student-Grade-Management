@@ -10,6 +10,7 @@ import Dal.SubjectsDBContext;
 import Model.Mark;
 import Model.Subjects;
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
  *
  * @author MyPC
  */
-public class MarkController extends HttpServlet {
+public class MarkViewController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,6 +30,21 @@ public class MarkController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+       int sid = Integer.parseInt(request.getParameter("sid"));
+        int subid = Integer.parseInt(request.getParameter("subid"));
+        MarkDBContext dbm = new MarkDBContext();
+        Mark mark = dbm.getget(sid, subid);
+        request.setAttribute("mark", mark);
+        
+        SubjectsDBContext dbs = new SubjectsDBContext();
+        ArrayList<Subjects> subject = dbs.search(sid);
+        request.setAttribute("subject", subject);
+        request.setAttribute("sid", sid);
+        
+        request.getRequestDispatcher("view_students/mark.jsp").forward(request, response);  
+    } 
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -41,12 +57,7 @@ public class MarkController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int sid = Integer.parseInt(request.getParameter("sid"));
-        SubjectsDBContext db = new SubjectsDBContext();
-        ArrayList<Subjects> subject = db.search(sid);
-        request.setAttribute("subject", subject);
-        request.setAttribute("sid", sid);
-        request.getRequestDispatcher("view_students/mark.jsp").forward(request, response);
+        processRequest(request, response);
     } 
 
     /** 
@@ -58,8 +69,17 @@ public class MarkController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {           
+    throws ServletException, IOException {
+        processRequest(request, response);
     }
 
+    /** 
+     * Returns a short description of the servlet.
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }

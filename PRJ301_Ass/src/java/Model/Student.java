@@ -21,6 +21,7 @@ public class Student {
     private String saddress;
     private Date sdob;
     private Group group;
+    private Subjects sub;
 
     public Subjects getSub() {
         return sub;
@@ -29,8 +30,6 @@ public class Student {
     public void setSub(Subjects sub) {
         this.sub = sub;
     }
-    private Subjects sub;
-
     public int getSid() {
         return sid;
     }

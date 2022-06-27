@@ -14,6 +14,7 @@ public class Group {
     private int gid;
     private String gname;
     private Subjects sub;
+    
 
     public Subjects getSub() {
         return sub;

@@ -25,6 +25,7 @@ public class GroupController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int subid = Integer.parseInt(request.getParameter("id"));
+        
         SubjectsDBContext dbsub = new SubjectsDBContext();
         ArrayList<Subjects> subject = dbsub.list();
         request.setAttribute("subject", subject);
