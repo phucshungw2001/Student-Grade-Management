@@ -48,7 +48,7 @@ public class MarkDBContext extends DBContext<Mark> {
                 sub.setSubid(rs.getInt("subid"));
                 m.setStu(stu);
                 m.setSub(sub);
-                return  m;               
+                return m;               
             }
         } catch (SQLException ex) {
             Logger.getLogger(MarkDBContext.class.getName()).log(Level.SEVERE, null, ex);

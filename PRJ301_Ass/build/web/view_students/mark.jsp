@@ -23,111 +23,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
 
     </head>
-    <style>
-        th{
-            text-align: left;
-        }
-        .a{
-            width: 120px;
-            height: 140px;
-            margin-left: 10px;
-            margin-right: 10px;
-            margin-bottom: 0px;
-        }
-        .b
-        {
-            width: 50px;
-            height: 50px;
-            margin-left: 25px;
-        }
-        .c{
-            width: 110px;
-            text-align: left;
-        }
-        .d{
-            width: 600px;
-            text-align: left;
-        }
-        .f{
-            width: 380px;
-            text-align: left;
-        }
-        th{
-            background-color:#6b99da;
-            display: table-cell;
-        }
-        .lienket a{
-            text-decoration: none
-        }
-        .lienket
-        {
-            margin: 3%;
-            flex: 20%;
-            display: flex;
-            justify-content: center;
-        }
-        .index
-        {
-            width: 60px;
-        }
-        .aa{
-            text-align:right;
-            margin: 4%;
-        }
-        .bb{
-            background-color: skyblue;
-        }
-        input{
-            border-radius: 30px;
-        }
-        .lienket a{
-            text-decoration: none
-        }
-
-        .e{
-            margin-left:  3.2%;
-            display: flex;
-            justify-content: left;
-            font-size: 20px;
-        }
-        .ee{
-            margin: 3.4%;
-            display: flex;
-            justify-content: left;
-            background-color: #f5f5f5;
-
-        }
-        p{
-            font-size: 15px;
-        }
-
-        .ee a{
-            text-decoration: none;
-            color: #337ab7;
-        }
-        .ee p{
-            padding-left: 15px;
-            font-family: cursive;
-            font-size: 13px;
-        }
-        .cc{
-            font-size: 25px;
-            color: black;
-            text-align: center;
-            margin: 18px;
-        }
-        .dd{
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-            font-size: 20px;
-            color: #776;
-            text-align: left;
-            margin: 10px;
-        }
-
-    </style>
-
     <body>
-
         <div class="e">
             <h2> University Academic Portal</h2>       
         </div>
@@ -137,7 +33,18 @@
                 <p> <a href="subject">Home</a>
                     | Grade-book </p>
             </div>
-            <div> </div>   
+            <div class="eee"> 
+                <p>
+                    <c:if test="${sessionScope.account != null}">
+                    <div class="aaaaa">
+                        <p >
+                            <a href="logout">LogOut</a>             
+                        </p>
+                    </div>
+                </c:if>  
+                </p>
+
+            </div>   
         </div> 
 
         <div >
@@ -147,7 +54,7 @@
                         <tr>
                             <td valign='top'>                
                                 <div class="cc">
-                                    Select a term, course ...
+                                    Grade report for .....
                                 </div>  
                                 <table>
                                     <thead><tr><th>Term</th><th>Course</th></tr></thead>
@@ -161,7 +68,7 @@
                                                         <tr>
                                                             <td>
                                                                 <c:forEach items="${requestScope.subject}" var="s">                               
-                                                                    <a  href="markview?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>(${s.subcode})</br>                                 
+                                                                    <a  href="markview?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>  (${s.subcode})</br>                                 
                                                                 </c:forEach>
 
                                                             </td>
@@ -383,4 +290,109 @@
         </table>
 
     </body>
+
+    <style>
+        th{
+            text-align: left;
+        }
+        .a{
+            width: 120px;
+            height: 140px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 0px;
+        }
+        .b
+        {
+            width: 50px;
+            height: 50px;
+            margin-left: 25px;
+        }
+        .c{
+            width: 110px;
+            text-align: left;
+        }
+        .d{
+            width: 600px;
+            text-align: left;
+        }
+        .f{
+            width: 380px;
+            text-align: left;
+        }
+        th{
+            background-color:#6b99da;
+            display: table-cell;
+        }
+        .lienket a{
+            text-decoration: none
+        }
+        .lienket
+        {
+            margin: 3%;
+            flex: 20%;
+            display: flex;
+            justify-content: center;
+        }
+        .index
+        {
+            width: 60px;
+        }
+        .aa{
+            text-align:right;
+            margin: 4%;
+        }
+        .bb{
+            background-color: skyblue;
+        }
+        input{
+            border-radius: 30px;
+        }
+        .lienket a{
+            text-decoration: none
+        }
+
+        .e{
+            margin-left:  3.2%;
+            display: flex;
+            justify-content: left;
+            font-size: 20px;
+        }
+        .ee{
+            margin: 3.4%;
+            display: flex;
+            justify-content: left;
+            background-color: #f5f5f5;
+
+        }
+        p{
+            font-size: 15px;
+        }
+
+        .ee a{
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .ee p{
+            padding-left: 15px;
+            font-family: cursive;
+            font-size: 13px;
+        }
+        .cc{
+            font-size: 25px;
+            color: black;
+            text-align: center;
+            margin: 18px;
+        }
+        .dd{
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 20px;
+            color: #776;
+            text-align: left;
+            margin: 10px;
+        }
+        .eee{
+            margin-left: 81%;
+        }
+    </style>
 </html>

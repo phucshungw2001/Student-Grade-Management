@@ -13,7 +13,103 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <style>
+
+    <body>
+        <div class="e">
+            <h2> University Academic Portal</h2>       
+        </div>
+
+        <div class="ee">
+            <div>
+                <p> <a href="subject">Home</a>
+                    | Groups </p>
+            </div>
+            <div class="eee"> 
+             <p>
+                  <c:if test="${sessionScope.account != null}">
+                            <div class="aaaaa">
+                                <p >
+                                    <a href="logout">LogOut</a>             
+                                </p>
+                            </div>
+                   </c:if>  
+             </p>
+            </div>   
+            
+        </div>            
+
+        <div class="cc">
+            Select a course, then a group ...
+        </div>        
+        
+        
+        <div class="lienket">
+            <table>               
+                <tr >
+                    <th class="c">Campus</th>                     
+                    <th class="c">Department</th>
+                    <th class="d">Course</th>
+                    <th class="f">Group</th>                                         
+                </tr>    
+                
+                <td style="vertical-align:top">University</td>
+                <td style="vertical-align:top"></td>
+                <td style="vertical-align:top">
+                    <table>
+                        <tr> 
+                            <td>
+                                <c:forEach items="${requestScope.subject}" var="s">                               
+                                    <a href="group?id=${s.subid}">${s.subname} </a>(${s.subcode})</br>                                
+                                </c:forEach>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+
+                <td style="vertical-align:top">
+                    <table>   
+                        <tr>                       
+                            <c:forEach items="${requestScope.group}" var="g">                        
+                                <td>
+                                    <a href="student?id=${g.gid}">${g.gname}</a>   
+                                </td>                         
+                            </c:forEach>                            
+                        </tr> 
+                    </table>   
+                </td>
+            </table>
+        </div>
+
+        <div style="height: 50px;"></div>
+
+        <table width="100%" style="border: 1px solid transparent;" class="lienket">
+
+            <tr>
+                <td>
+                    <div id="ctl00_divSupport">
+                        <br />
+                        <b>Mọi góp ý, thắc mắc xin liên hệ: </b><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13.333333969116211px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">Phòng dịch vụ sinh viên</span>: Email: <a href="mailto:dichvusinhvien@">dichvusinhvien@edu.vn</a>.
+                        Điện thoại: <span class="style1"
+                                          style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13.333333969116211px; font-style: normal; font-variant: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">(+084) 0888888.86.86 </span>
+                        <br />
+                    </div>                                        
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="text-align: center">
+                        © Powered by <a href="http://fpt.edu.vn" target="_blank">University</a>&nbsp;|&nbsp;
+                        <a href="http://cms.fpt.edu.vn/" target="_blank">CMS</a>&nbsp;|&nbsp; <a href="http://library.edu.vn" target="_blank">library</a>&nbsp;|&nbsp; <a href="http://library.books24x7.com" target="_blank">books24x7</a>
+                        <span id="ctl00_lblHelpdesk"></span>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+
+
+    </body>
+        <style>
         .a{
             width: 120px;
             height: 140px;
@@ -104,87 +200,8 @@
             margin-left: 3.7%;
             text-align: left;
         }
+        .eee{
+           margin-left: 83%;    
+        }
     </style>
-    <body>
-        <div class="e">
-            <h2> University Academic Portal</h2>       
-        </div>
-
-        <div class="ee">
-            <div>
-                <p> <a href="subject">Home</a>
-                    | Groups </p>
-            </div>
-            <div> </div>   
-        </div>            
-
-        <div class="cc">
-            Select a course, then a group ...
-        </div>        
-        <div class="lienket">
-            <table>               
-                <tr >
-                    <th class="c">Campus</th>                     
-                    <th class="c">Department</th>
-                    <th class="d">Course</th>
-                    <th class="f">Group</th>                                         
-                </tr>    
-                
-                <td style="vertical-align:top">University</td>
-                <td style="vertical-align:top"></td>
-                <td style="vertical-align:top">
-                    <table>
-                        <tr> 
-                            <td>
-                                <c:forEach items="${requestScope.subject}" var="s">                               
-                                    <a href="group?id=${s.subid}">${s.subname} </a>(${s.subcode})</br>                                
-                                </c:forEach>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-
-                <td style="vertical-align:top">
-                    <table>   
-                        <tr>                       
-                            <c:forEach items="${requestScope.group}" var="g">                        
-                                <td>
-                                    <a href="student?id=${g.gid}">${g.gname}</a>   
-                                </td>                         
-                            </c:forEach>                            
-                        </tr> 
-                    </table>   
-                </td>
-            </table>
-        </div>
-
-        <div style="height: 50px;"></div>
-
-        <table width="100%" style="border: 1px solid transparent;" class="lienket">
-
-            <tr>
-                <td>
-                    <div id="ctl00_divSupport">
-                        <br />
-                        <b>Mọi góp ý, thắc mắc xin liên hệ: </b><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13.333333969116211px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">Phòng dịch vụ sinh viên</span>: Email: <a href="mailto:dichvusinhvien@">dichvusinhvien@edu.vn</a>.
-                        Điện thoại: <span class="style1"
-                                          style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13.333333969116211px; font-style: normal; font-variant: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">(+084) 0888888.86.86 </span>
-                        <br />
-                    </div>                                        
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p style="text-align: center">
-                        © Powered by <a href="http://fpt.edu.vn" target="_blank">University</a>&nbsp;|&nbsp;
-                        <a href="http://cms.fpt.edu.vn/" target="_blank">CMS</a>&nbsp;|&nbsp; <a href="http://library.edu.vn" target="_blank">library</a>&nbsp;|&nbsp; <a href="http://library.books24x7.com" target="_blank">books24x7</a>
-                        <span id="ctl00_lblHelpdesk"></span>
-                    </p>
-                </td>
-            </tr>
-        </table>
-
-
-
-    </body>
 </html>

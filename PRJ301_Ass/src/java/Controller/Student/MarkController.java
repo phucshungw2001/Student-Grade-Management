@@ -46,7 +46,7 @@ public class MarkController extends HttpServlet {
         ArrayList<Subjects> subject = db.search(sid);
         request.setAttribute("subject", subject);
         request.setAttribute("sid", sid);
-        request.getRequestDispatcher("view_students/mark.jsp").forward(request, response);
+        request.getRequestDispatcher("view_students/subjectviewmark.jsp").forward(request, response);
     } 
 
     /** 

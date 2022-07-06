@@ -1,24 +1,29 @@
 <%-- 
-    Document   : student
-    Created on : Jun 8, 2022, 8:41:25 PM
+    Document   : mark
+    Created on : Jun 18, 2022, 4:55:55 PM
     Author     : MyPC
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Resume - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+
     </head>
     <body>
-        <%
-          int count = (Integer)request.getAttribute("count");
-        %>
-
         <div class="e">
             <h2> University Academic Portal</h2>       
         </div>
@@ -26,9 +31,9 @@
         <div class="ee">
             <div>
                 <p> <a href="subject">Home</a>
-                    | View Student   </p>
+                    | Grade-book </p>
             </div>
-            <div class="eee">
+            <div class="eee"> 
                 <p>
                     <c:if test="${sessionScope.account != null}">
                     <div class="aaaaa">
@@ -38,66 +43,56 @@
                     </div>
                 </c:if>  
                 </p>
-            </div>           
-        </div>   
 
-        <div class="lienket">         
-            <p1>Group : <c:forEach items="${requestScope.group}" var="g">
-                    <c:if test="${g.gid eq requestScope.id}">                          
-                        ${g.gname}                        
-                    </c:if>                       
-                </c:forEach> </p1>
-        </div>
-
-
-        <div class="aa">
-            <form action="student" method="POST">     
-                <input type="text" name="code" >
-                <input type="hidden" name="id" value="${requestScope.id}">
-                <input type="Submit" value="Search" class="bb">
-            </form>   
-        </div>
-        <div class="cc">
-            ... then see student list
+            </div>   
         </div> 
-        <div class="lienket">
-            <table>               
-                <tr >
-                    <th class="index">Index</th>                     
-                    <th class="name">Image</th>
-                    <th class="name">Member</th>
-                    <th class="code">Code</th>
-                    <th class="name">Name</th>                     
-                    <th class="code">Dob</th>
-                    <th class="code">Address</th>
-                    <th class="gender">Gender</th>        
-                </tr>              
-                <td style="vertical-align:top"></td>
-                <c:forEach items="${requestScope.stu}" var="s" >              
-                    <tr>
-                        <td style="vertical-align:top"><%=count++%></td>
-                        <td style="text-align:center">                   
-                            <img class="a" src="${s.simg}" alt=""/>
-                        </td>
-                        <td style="vertical-align:top">
-                            <a  href="mark?sid=4"> ${s.smember}</a>  
-                        </td>
 
-                        <td style="vertical-align:top">
-                            ${s.code}                    
-                        </td>
-                        <td style="vertical-align:top">${s.sname}</td>                         
-                        <td style="vertical-align:top">${s.sdob}</td>
-                        <td style="vertical-align:top">${s.saddress}</td> 
-                        <td style="vertical-align:top">                       
-                            <img class="b" src="assets/img/${s.sgender?"nam.png":"gai.png"}" alt=""/>
-                        </td>    
-                    </tr>  
-                </c:forEach>
-            </table>
+        <div >
+            <div>                   
+                <div class="lienket">
+                    <table>
+                        <tr>
+                            <td valign='top'>                
+                                <div class="cc">
+                                    Grade report for .....
+                                </div>  
+                                <table>
+                                    <thead><tr><th>Term</th><th>Course</th></tr></thead>
+
+                                    <tbody>
+                                        <tr> 
+                                            <td class="c" valign='top'><div><table><tr><td>Summer 2022</td></tr></table></div></td>
+                                            <td class="d">
+                                                <div>
+                                                    <table>
+                                                        <tr>
+                                                            <td>
+                                                                <c:forEach items="${requestScope.subject}" var="s">                               
+                                                                    <a  href="markview?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>  (${s.subcode})</br>                                 
+                                                                </c:forEach>
+
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                            </td>
+                            <td valign='top'>
+                                <div> 
+                                </div>
+                            </td>                    
+                        </tr>
+                    </table>
+
+                </div> 
+            </div>
         </div>
-        <div style="height: 30px;"></div>
 
+
+
+        <div style="height: 50px;"></div>
         <table width="100%" style="border: 1px solid transparent;" class="lienket">
 
             <tr>
@@ -120,10 +115,14 @@
                     </p>
                 </td>
             </tr>
-        </table> 
+        </table>
 
     </body>
-        <style>
+
+    <style>
+        th{
+            text-align: left;
+        }
         .a{
             width: 120px;
             height: 140px;
@@ -137,23 +136,22 @@
             height: 50px;
             margin-left: 25px;
         }
+        .c{
+            width: 110px;
+            text-align: left;
+        }
+        .d{
+            width: 1020px;
+            text-align: left;
+        }
+        .f{
+            width: 380px;
+            text-align: left;
+        }
         th{
             background-color:#6b99da;
             display: table-cell;
         }
-        .name{
-            width: 180px;
-        }
-        .gender
-        {
-            width:120px;
-        }
-        .code
-        {
-            width: 120px;
-
-        }
-
         .lienket a{
             text-decoration: none
         }
@@ -178,6 +176,10 @@
         input{
             border-radius: 30px;
         }
+        .lienket a{
+            text-decoration: none
+        }
+
         .e{
             margin-left:  3.2%;
             display: flex;
@@ -189,31 +191,36 @@
             display: flex;
             justify-content: left;
             background-color: #f5f5f5;
+
         }
         p{
-            padding-left: 15px;
-            font-family: cursive;
-            font-size: 13px;
+            font-size: 15px;
         }
 
         .ee a{
             text-decoration: none;
             color: #337ab7;
         }
-        p1{
-            font-family: Times New Roman;
-            font-size: 25px;
-            color: black;
+        .ee p{
+            padding-left: 15px;
+            font-family: cursive;
+            font-size: 13px;
         }
         .cc{
-            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
             font-size: 25px;
-            color: #776;
-            margin-left: 3.7%;
+            color: black;
             text-align: left;
+            margin: 18px;
         }
-          .eee{
-           margin-left: 80%;    
+        .dd{
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 20px;
+            color: #776;
+            text-align: left;
+            margin: 10px;
+        }
+        .eee{
+            margin-left: 81%;
         }
     </style>
 </html>
