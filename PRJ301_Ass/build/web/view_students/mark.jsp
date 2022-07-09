@@ -68,7 +68,7 @@
                                                         <tr>
                                                             <td>
                                                                 <c:forEach items="${requestScope.subject}" var="s">                               
-                                                                    <a  href="markview?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>  (${s.subcode})</br>                                 
+                                                                    <a  href="assessment?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>  (${s.subcode})</br>                                 
                                                                 </c:forEach>
 
                                                             </td>
@@ -95,162 +95,79 @@
                                         </tr>
 
                                         <tbody>
-                                            <tr>
-                                                <td rowspan="4">Assignment</td>
-                                                <td>Assignment 1</td>
-                                                <td>10.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.mark.ass1 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.mark.ass1 != 0}">
-                                                        ${requestScope.mark.ass1}
-                                                    </c:if>  
-                                                </td>
-                                                <td></td>
-                                            </tr>
 
-                                            <tr>
-                                                <td>Assignment 2</td>
-                                                <td>10.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.mark.ass2 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.mark.ass2 != 0}">
-                                                        ${requestScope.mark.ass2}
-                                                    </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
+                                            <c:forEach items="${requestScope.assessment}" var="a">
+                                                <tr>        
+                                                    <c:if test="${a.name eq requestScope.w}">                                                    
+                                                        <td rowspan="${requestScope.countw}">WorkShop</td>                                                       
+                                                    </c:if>
 
-                                            <tr>
-                                                <td>Assignment 3</td>
-                                                <td>10.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.mark.ass3 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.mark.ass3 != 0}">
-                                                        ${requestScope.mark.ass3}
+                                                    <c:if test="${a.name eq requestScope.a}">                                                    
+                                                        <td rowspan="${requestScope.counta}">Assignment</td>
                                                     </c:if> 
 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>30.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td rowspan="4">Progress test</td>
-                                                <td>Progress test 1</td>
-                                                <td>10.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.mark.prj1 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.mark.prj1 != 0}">
-                                                        ${requestScope.mark.prj1}
+                                                    <c:if test="${a.name eq requestScope.p}">                                                    
+                                                        <td rowspan="${requestScope.countp}">Project</td>
                                                     </c:if> 
 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Progress test 2</td>
-                                                <td>10.0 %</td>
-                                                <td>    
-                                                    <c:if test="${requestScope.mark.prj2 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.mark.prj2 != 0}">
-                                                        ${requestScope.mark.prj2}
-                                                    </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Progress test 3</td>
-                                                <td>10.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.mark.prj3 == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.mark.prj3 != 0}">
-                                                        ${requestScope.mark.prj3}
-                                                    </c:if> 
-                                                </td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>30.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td rowspan="2">Practical Exam</td>
-                                                <td>Practical Exam</td>
-                                                <td>20.0 %</td>
-                                                <td>
-
-                                                    <c:if test="${requestScope.mark.pe == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.mark.pe != 0}">
-                                                        ${requestScope.mark.pe}
+                                                    <c:if test="${a.name eq requestScope.pt}">                                                    
+                                                        <td rowspan="${requestScope.countpt}">Progress Test</td>
                                                     </c:if> 
 
-                                                </td>
-                                                <td></td>
-                                            </tr>
+                                                    <c:if test="${a.name eq requestScope.l}">                                                    
+                                                        <td rowspan="${requestScope.countl}">Lab</td>
+                                                    </c:if> 
 
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                                    <c:if test="${a.name eq requestScope.ass}">                                                    
+                                                        <td rowspan="1">Assignment</td>
+                                                    </c:if> 
 
 
-                                            <tr>
-                                                <td rowspan="2">Final Exam</td>
-                                                <td>Final Exam</td>
-                                                <td>20.0 %</td>
-                                                <td>
-                                                    <c:if test="${requestScope.mark.fe == 0}">
-                                                    </c:if>  
-                                                    <c:if test="${requestScope.mark.fe != 0}">
-                                                        ${requestScope.mark.fe}
-                                                    </c:if>  
-                                                </td>
-                                                <td></td>
-                                            </tr>
+                                                    <c:if test="${a.name eq requestScope.pe}">                                                    
+                                                        <td rowspan="1">Practive Exam</td>
+                                                    </c:if> 
 
-                                            <tr>
-                                                <td>Total</td>
-                                                <td>20.0 %</td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                                    <c:if test="${a.name eq requestScope.fe}">                                                    
+                                                        <td rowspan="1">Final Exam</td>
+                                                    </c:if> 
+
+                                                    <td>${a.name}</td>                                                  
+                                                    <td>${a.weight} %</td>
+                                                    <c:forEach items="${requestScope.exam}" var="e">
+                                                        <c:if test="${e.getAssessment().name eq a.name}">
+                                                            <td>${e.score}</td>    
+                                                        </c:if>
+                                                    </c:forEach>
+                                                    <td></td>
+                                                </tr>
+                                            </c:forEach>
+
 
                                         </tbody>
 
                                         <tfoot>
-                                            <tr>
+                                            <tr class="m">
                                                 <td rowspan="2">Course total</td>
                                                 <td>Average</td>
-                                                <td colspan="3"></td>
+                                                <td colspan="3">${requestScope.total}</td>
                                             </tr>
 
-                                            <tr>
+                                            <tr class="m">
                                                 <td>Status</td>
+
                                                 <td colspan="3">
-                                                    <font color="Green">Pass</font>
-                                                    <!--                                                    <font color="Red">Not Pass</font>-->
-                                                </td></tr>
+                                                    <c:if test="${requestScope.total >= 5}">
+                                                        <font color="Green">Pass</font>
+                                                    </c:if>
+                                                    <c:if test="${requestScope.total < 5}">
+                                                        <font color="Red">Not Pass</font>
+                                                    </c:if>      
+                                                    <c:if test="${requestScope.total == 5}">
+                                                        <font color="Green">Study</font>
+                                                    </c:if>    
+                                                </td>
+
+                                            </tr>
                                         </tfoot>
                                     </table>
                                 </div>
@@ -292,6 +209,9 @@
     </body>
 
     <style>
+        .m td{
+            font-size: 20px;
+        }
         th{
             text-align: left;
         }

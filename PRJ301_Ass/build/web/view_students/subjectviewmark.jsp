@@ -68,7 +68,7 @@
                                                         <tr>
                                                             <td>
                                                                 <c:forEach items="${requestScope.subject}" var="s">                               
-                                                                    <a  href="markview?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>  (${s.subcode})</br>                                 
+                                                                    <a  href="assessment?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>  (${s.subcode})</br>                                 
                                                                 </c:forEach>
 
                                                             </td>
