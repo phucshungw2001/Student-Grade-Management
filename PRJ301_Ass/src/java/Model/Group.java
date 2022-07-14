@@ -14,6 +14,15 @@ public class Group {
     private int gid;
     private String gname;
     private Subjects sub;
+    private Lecturers lec;
+
+    public Lecturers getLec() {
+        return lec;
+    }
+
+    public void setLec(Lecturers lec) {
+        this.lec = lec;
+    }
     
 
     public Subjects getSub() {

@@ -19,7 +19,7 @@ public class Exam {
     private Assessment assessment;
     private Student stu;
     private Subjects sub;
-
+    
     public Student getStu() {
         return stu;
     }

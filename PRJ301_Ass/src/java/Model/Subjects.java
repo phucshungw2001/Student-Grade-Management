@@ -17,6 +17,15 @@ public class Subjects {
     private String subcode;
     private Group group;
     private Student stu;
+    private Lecturers lec;
+
+    public Lecturers getLec() {
+        return lec;
+    }
+
+    public void setLec(Lecturers lec) {
+        this.lec = lec;
+    }
 
     public Student getStu() {
         return stu;

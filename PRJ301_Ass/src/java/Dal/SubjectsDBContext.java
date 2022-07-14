@@ -4,6 +4,7 @@
  */
 package Dal;
 
+import Model.Lecturers;
 import Model.Student;
 import Model.Subjects;
 import java.sql.PreparedStatement;
@@ -77,6 +78,35 @@ public class SubjectsDBContext extends DBContext<Subjects> {
         return sub;
     }
 
+    public ArrayList<Subjects> searchlecturers(int lid) {
+        ArrayList<Subjects> sub = new ArrayList<>();
+        try {
+            String sql = "SELECT Subjects.subid, Subjects.subcode,Subjects.subname, Lecturers.lid, Lecturers.lname \n"
+                    + "FROM   Lecturers INNER JOIN\n"
+                    + "             Lecturers_Subjects ON Lecturers.lid = Lecturers_Subjects.lid INNER JOIN\n"
+                    + "             Subjects ON Lecturers_Subjects.subid = Subjects.subid\n"
+                    + "			 where Lecturers.lid = ?";
+            PreparedStatement stm = connection.prepareStatement(sql);
+            stm.setInt(1, lid);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Subjects s = new Subjects();
+                s.setSubid(rs.getInt("subid"));
+                s.setSubcode(rs.getString("subcode"));
+                s.setSubname(rs.getString("subname"));
+                
+                Lecturers lec = new Lecturers();
+                lec.setLid(rs.getInt("lid"));
+                lec.setLname(rs.getString("lname"));
+                s.setLec(lec);
+                sub.add(s);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return sub;
+    }
+
     @Override
     public Subjects get(int id) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -101,13 +131,14 @@ public class SubjectsDBContext extends DBContext<Subjects> {
     public Subjects getT(String a, String b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     public static void main(String[] args) {
         SubjectsDBContext db = new SubjectsDBContext();
-        ArrayList<Subjects> search = db.search(4);
-        System.out.println("" + search);
-        ArrayList<Subjects> list = db.list();
-        System.out.println("" + list);
+        ArrayList<Subjects> search = db.searchlecturers(1);
+        System.out.println(""+search);
+        for (Subjects subjects : search) {
+            System.out.println(""+subjects.getSubid());
+        }
     }
 
 }
