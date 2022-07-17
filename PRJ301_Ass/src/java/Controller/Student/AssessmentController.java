@@ -93,7 +93,6 @@ public class AssessmentController extends HttpServlet {
            total = total+ exam.get(i).getScore() * exam.get(i).getAssessment().getWeight()/100;
         }
         
-
         request.setAttribute("countw", countw);
         request.setAttribute("counta", counta);
         request.setAttribute("countp", countp);

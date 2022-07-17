@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Controller.Student;
+package Controller.Home;
 
 import Dal.AccountDBContext;
 import Model.Account;
@@ -33,18 +33,25 @@ public class LoginController extends HttpServlet {
         String password = request.getParameter("password");
 
         AccountDBContext db = new AccountDBContext();
-        Account account = db.getT(username, password);
-        
-        if (account == null) {
+        Account testaccount = db.getT(username, password);
+        if (testaccount != null) {
+            if (testaccount.getStudent() == 1 && testaccount.getLecturers() == 0) {
+                ArrayList<Account> account = db.listaccount(username, password);
+                HttpSession session = request.getSession();
+                request.getSession().setAttribute("account", account);
+                request.getRequestDispatcher("view_students/viewinformation.jsp").forward(request, response);
+            }
+            if (testaccount.getStudent()==0 && testaccount.getLecturers()==1){
+                ArrayList<Account> account = db.listaccountlecturers(username, password);
+                HttpSession session = request.getSession();
+                request.getSession().setAttribute("account", account);                
+                request.getRequestDispatcher("view_lecturers/viewinformationlecturers.jsp").forward(request, response);                
+            }
+        } else {
             request.getSession().setAttribute("account", null);
             request.setAttribute("mes", "Login fail");
             request.getRequestDispatcher("login.jsp").forward(request, response);
-        } else {
-            HttpSession session = request.getSession();
-            session.setAttribute("account", account);
-            request.getSession().setAttribute("account", account);
-            request.setAttribute("name", account.getDisplayname());
-            response.sendRedirect("home.jsp");
+
         }
     }
 

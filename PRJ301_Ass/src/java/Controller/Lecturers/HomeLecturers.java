@@ -3,41 +3,38 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package Controller.Student;
+package Controller.Lecturers;
 
-import Dal.MarkDBContext;
-import Dal.SubjectsDBContext;
-import Model.Mark;
-import Model.Subjects;
 import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
  * @author MyPC
  */
-public class MarkController extends HttpServlet {
-
+public class HomeLecturers extends HttpServlet {
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int sid = Integer.parseInt(request.getParameter("sid"));
-        SubjectsDBContext db = new SubjectsDBContext();
-        ArrayList<Subjects> subject = db.search(sid);
-        request.setAttribute("subject", subject);
-        request.setAttribute("sid", sid);
-        request.getRequestDispatcher("view_students/subjectviewmark.jsp").forward(request, response);
+       HttpSession session = request.getSession();
+       request.getSession().getAttribute("account");
+         
+       request.getRequestDispatcher("view_students/viewinformation.jsp").forward(request, response);
     } 
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {           
+    throws ServletException, IOException {
+       
     }
+
 
 
 }

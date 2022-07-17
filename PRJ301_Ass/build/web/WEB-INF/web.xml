@@ -2,11 +2,11 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>LoginController</servlet-name>
-        <servlet-class>Controller.Student.LoginController</servlet-class>
+        <servlet-class>Controller.Home.LoginController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Home</servlet-name>
-        <servlet-class>Controller.Student.Home</servlet-class>
+        <servlet-class>Controller.Home.Home</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StudentController</servlet-name>
@@ -18,7 +18,7 @@
     </servlet>
     <servlet>
         <servlet-name>LogOutController</servlet-name>
-        <servlet-class>Controller.Student.LogOutController</servlet-class>
+        <servlet-class>Controller.Home.LogOutController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SubjectsController</servlet-name>
@@ -55,6 +55,14 @@
     <servlet>
         <servlet-name>MarkLecturersController</servlet-name>
         <servlet-class>Controller.Lecturers.MarkLecturersController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeStudent</servlet-name>
+        <servlet-class>Controller.Student.HomeStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeLecturers</servlet-name>
+        <servlet-class>Controller.Lecturers.HomeLecturers</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>MarkLecturersController</servlet-name>
         <url-pattern>/marklecturers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeStudent</servlet-name>
+        <url-pattern>/homestudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeLecturers</servlet-name>
+        <url-pattern>/homelecturers</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

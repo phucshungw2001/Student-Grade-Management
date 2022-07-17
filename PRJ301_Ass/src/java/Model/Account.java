@@ -9,9 +9,49 @@ package Model;
  * @author MyPC
  */
 public class Account {
+
     private String username;
     private String password;
     private String displayname;
+    private int student;
+    private int lecturers;
+    private Student stu;
+    private Lecturers lec;
+
+    public Student getStu() {
+        return stu;
+    }
+
+    public void setStu(Student stu) {
+        this.stu = stu;
+    }
+
+    public Lecturers getLec() {
+        return lec;
+    }
+
+    public void setLec(Lecturers lec) {
+        this.lec = lec;
+    }
+
+    public int getStudent() {
+        return student;
+    }
+
+    public void setStudent(int student) {
+        this.student = student;
+    }
+
+    public int getLecturers() {
+        return lecturers;
+    }
+
+    public void setLecturers(int lecturers) {
+        this.lecturers = lecturers;
+    }
+
+    public Account() {
+    }
 
     public String getUsername() {
         return username;
@@ -36,6 +76,7 @@ public class Account {
     public void setDisplayname(String displayname) {
         this.displayname = displayname;
     }
-    
-    
+
+  
+
 }

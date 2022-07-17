@@ -30,64 +30,6 @@
 
     <link rel="Stylesheet" href="Content/bootstrap.css" type="text/css" /><link rel="Stylesheet" href="Content/bootstrap.min.css" type="text/css" /><link rel="Stylesheet" href="Content/bootstrap-theme.min.css" type="text/css" />
 
-    <style type="text/css">
-        .style1 {
-            font-weight: bold;
-        }
-        .e{
-            margin-left:  3.2%;
-            display: flex;
-            justify-content: left;
-            font-size: 20px;
-        }
-        .ee{
-            margin: 3.4%;
-            display: flex;
-            justify-content: left;
-            background-color: #f5f5f5;
-            height: 44px;
-
-        }
-        .ee a{
-            text-decoration: none;
-            color: #337ab7;
-        }
-        .ee p{
-            padding-left: 15px;
-            font-family: cursive;
-            font-size: 13px;
-        }
-        .eee{
-            margin-left: 82%;
-        }
-        p{
-            font-size: 15px;
-        }
-        .listBoxWrapper a{
-            text-decoration: none
-        }
-        .listBoxWrapper
-        {
-            margin-left:  10%;
-            flex: 20%;
-            display: flex;
-            justify-content: center;
-        }
-         .listBoxWrapper1
-        {
-            margin-left: 10%;
-            flex: 20%;
-            display: flex;
-            justify-content: center;
-            
-        }
-        h3{
-            background-color: #ef8d01;
-            padding: 7px;
-            border-radius: 5px;
-            color: white;
-        }
-    </style>
 </head>
 <body>
 
@@ -99,7 +41,7 @@
         <div>
             <p>
                 <c:forEach items="${sessionScope.account}" var="a">
-                     <a href="mark?sid=${a.getStu().sid}">${a.getStu().smember}</a>                
+                     <a href="mark?sid=${a.getLec().lid}">${a.getLec().lname}</a>                
                 </c:forEach>              
             </p>
         </div>
@@ -155,7 +97,7 @@
                                             <li><a href="Course/Courses.aspx">University timetable </a>(Lịch học)</li>
                                             <li><a href="FrontOffice/SubjectFees.aspx">Tuition fee per course</a> (Biểu học phí)</li>
                                             <li><a href="Report/ScheduleOfWeek.aspx">Weekly timetable</a> (Thời khóa biểu từng tuần)</li>
-                                            <li><a href="subject">Blended Online Course (BLOC) Schedules </a>(Lịch học các môn theo phương pháp BLOC trong kỳ)</li>
+                                            <li><a href="">Blended Online Course (BLOC) Schedules </a>(Lịch học các môn theo phương pháp BLOC trong kỳ)</li>
                                             <li><a href="Schedule/TimeTable.aspx">Class timetable</a> (Xem thời khóa biểu của một lớp)</li>
                                             <li><a href="Exam/ScheduleExams.aspx" target="_blank">View exam schedule </a>(Xem lịch thi)
                                                 <img src="images/New_icons_10.gif" id="ctl00_mainContent_imgIcon" /></li>
@@ -258,5 +200,65 @@
     <div class="listBoxWrapper">
         <jsp:include page="../footer.jsp"></jsp:include>
     </div>
+    
+      <style type="text/css">
+        .style1 {
+            font-weight: bold;
+        }
+        .e{
+            margin-left:  3.2%;
+            display: flex;
+            justify-content: left;
+            font-size: 20px;
+        }
+        .ee{
+            margin: 3.4%;
+            display: flex;
+            justify-content: left;
+            background-color: #f5f5f5;
+            height: 44px;
+
+        }
+        .ee a{
+            text-decoration: none;
+            color: #337ab7;
+        }
+        .ee p{
+            padding-left: 15px;
+            font-family: cursive;
+            font-size: 13px;
+        }
+        .eee{
+            margin-left: 78%;
+        }
+        p{
+            font-size: 15px;
+            width: 150px;
+        }
+        .listBoxWrapper a{
+            text-decoration: none
+        }
+        .listBoxWrapper
+        {
+            margin-left:  10%;
+            flex: 20%;
+            display: flex;
+            justify-content: center;
+        }
+         .listBoxWrapper1
+        {
+            margin-left: 10%;
+            flex: 20%;
+            display: flex;
+            justify-content: center;
+            
+        }
+        h3{
+            background-color: #ef8d01;
+            padding: 7px;
+            border-radius: 5px;
+            color: white;
+        }
+    </style>
 </body>
 </html>

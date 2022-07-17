@@ -32,7 +32,7 @@ public class MarkViewController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-       int sid = Integer.parseInt(request.getParameter("sid"));
+        int sid = Integer.parseInt(request.getParameter("sid"));
         int subid = Integer.parseInt(request.getParameter("subid"));
         MarkDBContext dbm = new MarkDBContext();
         Mark mark = dbm.getget(sid, subid);

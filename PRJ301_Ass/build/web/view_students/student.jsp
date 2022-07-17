@@ -26,7 +26,7 @@
 
         <div class="ee">
             <div>
-                <p> <a href="subject">Home</a>
+                <p> <a href="homestudent">Home</a>
                     | View Student   </p>
             </div>
             <div class="eee">
@@ -81,7 +81,11 @@
                             <img class="a" src="${s.simg}" alt=""/>
                         </td>
                         <td style="vertical-align:top">
-                            <a  href="mark?sid=4"> ${s.smember}</a>  
+
+                            <c:forEach items="${sessionScope.account}" var="a">
+                                <a href="mark?sid=${a.getStu().sid}">${s.smember}</a>                
+                            </c:forEach>  
+
                         </td>
 
                         <td style="vertical-align:top">
@@ -98,8 +102,8 @@
             </table>
         </div>
         <div style="height: 30px;"></div>
-        
+
         <jsp:include page="../footer.jsp"></jsp:include>
     </body>
-    
+
 </html>

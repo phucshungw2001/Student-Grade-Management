@@ -30,7 +30,7 @@
 
         <div class="ee">
             <div>
-                <p> <a href="subject">Home</a>
+                <p> <a href="homestudent">Home</a>
                     | Grade-book </p>
             </div>
             <div class="eee"> 
@@ -68,7 +68,7 @@
                                                         <tr>
                                                             <td>
                                                                 <c:forEach items="${requestScope.subject}" var="s">                               
-                                                                    <a  href="assessment?sid=${requestScope.sid}&subid=${s.subid}"  >${s.subname}</a>  (${s.subcode})</br>                                 
+                                                                    <a  href="assessment?sid=${requestScope.sid}&subid=${s.subid}">${s.subname}</a>  (${s.subcode})</br>                                 
                                                                 </c:forEach>
 
                                                             </td>

@@ -30,7 +30,7 @@
 
         <div class="ee">
             <div>
-                <p> <a href="subject">Home</a>
+                <p> <a href="homestudent">Home</a>
                     | Grade-book </p>
             </div>
             <div class="eee"> 

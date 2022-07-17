@@ -107,7 +107,11 @@
                         </c:if>
                         <c:if test="${sessionScope.account != null}">
                             <p class="bbbb">
-                                <a href="view_students/viewinformation.jsp">Information</a>             
+                                <a href="view_students/viewinformation.jsp">Information 
+                                    <c:forEach items="${sessionScope.account}" var="a">
+                                        ${a.username}
+                                    </c:forEach>                                   
+                                </a>             
                             </p>
                             <div class="aaaaa">
                                 <p >
