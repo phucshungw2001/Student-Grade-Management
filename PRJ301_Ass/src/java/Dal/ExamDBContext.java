@@ -184,8 +184,10 @@ public class ExamDBContext extends DBContext<Exam> {
 
     public static void main(String[] args) {
         ExamDBContext db = new ExamDBContext();
-        ArrayList<Exam> search = db.listmark(1);
-        System.out.println("" + search);
+        ArrayList<Exam> exams = new ArrayList<>();
+        
+        db.saveChanges(exams);
+  
     }
 
 }

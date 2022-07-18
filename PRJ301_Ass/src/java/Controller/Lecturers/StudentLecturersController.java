@@ -18,6 +18,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 /**
@@ -52,13 +53,17 @@ public class StudentLecturersController extends HttpServlet {
         request.setAttribute("assessment", assessment);
         request.setAttribute("lid", lid);
         request.setAttribute("subid", subid);
+        request.setAttribute("gid", gid);
         request.getRequestDispatcher("view_lecturers/viewallmark.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String[] components = request.getParameterValues("component");        
+        String[] components = request.getParameterValues("component");   
+        int lid = Integer.parseInt(request.getParameter("lid"));
+        int subid1 = Integer.parseInt(request.getParameter("subid"));
+        int gid = Integer.parseInt(request.getParameter("gid"));
         ArrayList<Exam> exams = new ArrayList<>();
         ExamDBContext dbexam = new ExamDBContext();
         for (String component : components) {
@@ -95,9 +100,12 @@ public class StudentLecturersController extends HttpServlet {
             }
             exams.add(e);
         }
-        dbexam.saveChanges(exams);
+        dbexam.saveChanges(exams);  
         
-        response.sendRedirect("marklecturers");
+        String re = "";
+        re = "marklecturers?lid="+lid+"&subid="+subid1+"&gid="+gid;
+        
+        response.sendRedirect(re);
     }
 
 }

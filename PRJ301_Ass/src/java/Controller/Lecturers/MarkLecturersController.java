@@ -29,9 +29,9 @@ public class MarkLecturersController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int lid = 1;
-        int subid = 1;
-        int gid = 2;
+        int lid = Integer.parseInt(request.getParameter("lid"));
+        int subid = Integer.parseInt(request.getParameter("subid"));
+        int gid = Integer.parseInt(request.getParameter("gid"));
 
         GroupDBContext dbgroup = new GroupDBContext();
         ArrayList<Group> grouplecturers = dbgroup.searchlecturers(lid, subid);

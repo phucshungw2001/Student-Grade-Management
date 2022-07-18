@@ -29,9 +29,8 @@ public class LecturersSubjectsController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-//        int lid = Integer.parseInt(request.getParameter("lid"));
+        int lid = Integer.parseInt(request.getParameter("lid"));
         SubjectsDBContext dbsub = new SubjectsDBContext();
-        int lid =1;
         ArrayList<Subjects> sublecurers = dbsub.searchlecturers(lid);
                 
         request.setAttribute("lid", lid);     

@@ -93,14 +93,16 @@
 
                         <c:if test="${sessionScope.account == null}">
 
-                            <div class="col-md-3 aaaa">
+                            <div class="col-md-3 ">                              
+                            </div>      
+                            <div class="col-md-3 aaaa">                               
+                                 <p>
+                                    <a href="login">Login</a>   
+                                </p>  
+                            </div>
+                            <div class="col-md-3 ">
                                 <p>
-                                    <a href="login">Login for Student</a>   
-                                </p>  </div>      
-                            <div class="col-md-2"></div>
-                            <div class="col-md-3 aaaa">
-                                <p>
-                                    <a href="">Login for Lecture</a>             
+                                              
                                 </p>
                             </div>
                             <div class="col-md-2"></div>

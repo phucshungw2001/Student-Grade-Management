@@ -19,7 +19,7 @@
 
         <div class="ee">
             <div>
-                <p> <a href="lecturerssubjects">Home</a>
+                <p> <a href="homelecturers">Home</a>
                 </p>
             </div>
             <div class="eee"> 
@@ -76,16 +76,20 @@
                                            </c:forEach>      
                                            /> 
                                     <input type="hidden" name="component" value="${s.sid}_${a.id}_${requestScope.subid}"/>
+                                    <input type="hidden" name="subid" value="${requestScope.subid}">
+                                    <input type="hidden" name="lid" value="${requestScope.lid}">
+                                    
                                 </td>
                             </c:forEach>
                         </tr>
                     </c:forEach>
 
                 </table>
-                <input type="hidden" value="${requestScope.lid}"/>
-                <input type="hidden" value="${requestScope.subid}"/>
-                <input type="hidden" value="${requestScope.gid}"/>                
-                <input type="submit" value="Save"/>
+                <input type="hidden" value="${requestScope.lid}" name="lid"/>
+                <input type="hidden" value="${requestScope.subid}" name="subid"/>
+                <input type="hidden" value="${requestScope.gid}" name="gid"/>       
+                
+                <input class="save"  type="submit" value="Save"/>
             </c:if>     
         </form>
     </body>
@@ -144,11 +148,18 @@
             font-size: 13px;
         }
         .eee{
-            margin-left: 90%;
+            margin-left: 85%;
         }
         p{
             font-size: 15px;
         }
+        .save{
+            background-color: #3e8f3e;
+            padding: 5px;
+            border-radius: 5px;
+            color: white;
+            margin-left:  46.5%;
+            }
 
     </style>
 </html>

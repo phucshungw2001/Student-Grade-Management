@@ -25,7 +25,7 @@ public class HomeLecturers extends HttpServlet {
        HttpSession session = request.getSession();
        request.getSession().getAttribute("account");
          
-       request.getRequestDispatcher("view_students/viewinformation.jsp").forward(request, response);
+       request.getRequestDispatcher("view_lecturers/viewinformationlecturers.jsp").forward(request, response);
     } 
 
 

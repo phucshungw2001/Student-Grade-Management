@@ -5,9 +5,7 @@
 
 package Controller.Student;
 
-import Dal.MarkDBContext;
 import Dal.SubjectsDBContext;
-import Model.Mark;
 import Model.Subjects;
 import java.io.IOException;
 import jakarta.servlet.ServletException;

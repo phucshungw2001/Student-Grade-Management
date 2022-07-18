@@ -5,12 +5,9 @@
 
 package Controller.Student;
 
-import Dal.MarkDBContext;
 import Dal.SubjectsDBContext;
-import Model.Mark;
 import Model.Subjects;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -34,9 +31,6 @@ public class MarkViewController extends HttpServlet {
     throws ServletException, IOException {
         int sid = Integer.parseInt(request.getParameter("sid"));
         int subid = Integer.parseInt(request.getParameter("subid"));
-        MarkDBContext dbm = new MarkDBContext();
-        Mark mark = dbm.getget(sid, subid);
-        request.setAttribute("mark", mark);
         
         SubjectsDBContext dbs = new SubjectsDBContext();
         ArrayList<Subjects> subject = dbs.search(sid);
