@@ -19,7 +19,7 @@
 
         <div class="ee">
             <div>
-                <p> <a href=""></a>
+                <p> <a href="homelecturers">Home</a>
                 </p>
             </div>
             <div class="eee"> 

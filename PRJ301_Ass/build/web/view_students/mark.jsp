@@ -161,10 +161,7 @@
                                                     </c:if>
                                                     <c:if test="${requestScope.total < 5}">
                                                         <font color="Red">Not Pass</font>
-                                                    </c:if>      
-                                                    <c:if test="${requestScope.total == 5}">
-                                                        <font color="Green">Study</font>
-                                                    </c:if>    
+                                                    </c:if>                                                
                                                 </td>
 
                                             </tr>
